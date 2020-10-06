@@ -77,9 +77,15 @@ $(function () {
             }
         })
 
+        $('#guest').click(function (e) {
+            e.preventDefault();
+
+        })
+
         function openBoard(){
             let my_image = ``;
             let my_image_panel = ``;
+            let width ;
 
             let status = getCookie("status");
 
@@ -100,12 +106,18 @@ $(function () {
                 console.log('nope');
             }
 
+            if (/Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor)){
+                width = `123%;`;
+            }else{
+                width = `121%;`;
+            }
+
             let panel =`
              <div id="panel" class="container-fluid ds_window animate__bounceIn">
                 <div id="innerPanel" class="row" style="height: 100%;">
                     <div class="col-2" style="background: white; border-radius: 7px 0 0 7px">
                         <div class="nav flex-column nav-pills mt-3" id="v-pills-tab" role="tablist" aria-orientation="vertical" style="transform: translateX(-15px);
-                            width: 121%;">
+                            width: ${width}">
                           <i id="_close" class="fad fa-times-circle close" style="font-size: 14pt; float: left; margin-top: 12px; transform: translate(7px,-20px);width: 20px;height: 20px;"></i>
                           <a class="nav-link active" id="v-pills-image-tab" data-toggle="pill" href="#v-pills-image" role="tab" aria-controls="v-pills-image" aria-selected="true"
                           style="border-radius: 0; font-size: 14pt;">
@@ -251,8 +263,6 @@ $(function () {
                 $(closeBoard());
             }
         })
-
-
 
         //-------------------------------Non functional|Area-------------------------------->
 

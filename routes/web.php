@@ -14,8 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', 'HomeController@index') -> name("home");
 
-Route::get('/f-search','SearchController@search') ->name("f-search");
-
 Route::get('/profile', 'UserController@profile') ->middleware('auth') ->name("profile");
 Route::post('profile','UserController@update_avatar');
 
